@@ -81,6 +81,10 @@ jobs:
         key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
         restore-keys: ${{ runner.os }}-m2
 
+    - name: Build with Maven
+      run: |
+        mvn versions:set -DnewVersion=${{ steps.prep.outputs.version }}
+        mvn clean install -DskipTests
 #    - name: SonarScanner for .NET 5 with pull request decoration support
 #      uses: highbyte/sonarscan-dotnet@2.0
 #      with:
