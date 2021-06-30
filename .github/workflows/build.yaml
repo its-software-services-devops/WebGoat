@@ -133,9 +133,7 @@ jobs:
         file: docker/Dockerfile
         push: true
         platforms: linux/amd64
-        tags: |
-          webgoat/goatandwolf:${{ steps.prep.outputs.version }}
-          webgoat/goatandwolf:latest
+        tags: ${{ steps.prep.outputs.gcr_tags }}
         build-args: |
           webgoat_version=${{ steps.prep.outputs.version }}
 
