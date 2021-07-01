@@ -29,12 +29,12 @@ jobs:
         VERSION=latest
         GIT_HASH=$(git rev-parse --short "$GITHUB_SHA")
         SERVICE_NAME=web-goat-dev
-        CLOUDRUN_PROJECT_ID=jenuine-dev
+        CLOUDRUN_PROJECT_ID=its-artifact-commons
 
         if [[ $GITHUB_REF == refs/tags/* ]]; then
           VERSION=${GITHUB_REF#refs/tags/}
           SERVICE_NAME=web-goat-prod
-          CLOUDRUN_PROJECT_ID=jenuine-prod
+          CLOUDRUN_PROJECT_ID=its-artifact-commons
         elif [[ $GITHUB_REF == refs/heads/* ]]; then
           BRANCH=$(echo ${GITHUB_REF#refs/heads/} | sed -r 's#/+#-#g')
           VERSION=$BRANCH-$GIT_HASH
