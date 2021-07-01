@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#Passed by Cloud Run
+export WEBGOAT_PORT=${PORT}
+
 cd /home/webgoat 
 service nginx start
 sleep 1
